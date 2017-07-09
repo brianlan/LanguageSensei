@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue.js</title>
+</head>
+<body>
+
+<div id="challenge">
+    <h3>{{ '{{appearance}}' }}</h3>
+    <input v-model="answer" v-on:keyup="key_enter"/>
+</div>
+
+<div id="next_btn">
+    <button @click="next">Next</button>
+</div>
+
+<div id="results" v-if="finished">
+    <p>
+        <span>Accuracy: {{ '{{ num_correct_challenges }} / {{ num_total_challenges }}' }}</span>
+    </p>
+    <p>
+        <span>Average time spent on one character: {{ '{{ avg_time_spent }}' }}</span>
+    </p>
+</div>
+
+</body>
+<script src="http://vuejs.org/js/vue.js"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/hello_vue.js') }}"></script>
+</html>
