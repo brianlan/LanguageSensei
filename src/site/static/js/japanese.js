@@ -63,7 +63,7 @@ var challenge = new Vue({
         success: function (data) {
             v_results.ground_truth = data._items.map( function(x) {
               return { appearance: x.appearance, pronunciation: x.pronunciation };
-            }).slice(0, 10);
+            });
             shuffle(v_results.ground_truth);
             self.appearance = v_results.ground_truth[cur_idx].appearance;
             self.pronunciation = v_results.ground_truth[cur_idx].pronunciation;
