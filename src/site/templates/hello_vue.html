@@ -6,6 +6,11 @@
 </head>
 <body>
 
+<div id="username">
+    <span>Your Name: </span>
+    <input v-model="username" />
+</div>
+
 <div id="challenge">
     <h3>{{ '{{appearance}}' }}</h3>
     <input v-model="answer" v-on:keyup="key_enter"/>
@@ -15,7 +20,7 @@
     <button @click="next">Next</button>
 </div>
 
-<div id="results" v-if="finished">
+<div id="results" v-if="is_trial_finished">
     <p>
         <span>Accuracy: {{ '{{ num_correct_challenges }} / {{ num_total_challenges }}' }}</span>
     </p>
