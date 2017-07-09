@@ -63,7 +63,7 @@ var challenge = new Vue({
         success: function (data) {
             v_results.ground_truth = data._items.map( function(x) {
               return { appearance: x.appearance, pronunciation: x.pronunciation };
-            });
+            }).slice(0, 10);
             shuffle(v_results.ground_truth);
             self.appearance = v_results.ground_truth[cur_idx].appearance;
             self.pronunciation = v_results.ground_truth[cur_idx].pronunciation;
@@ -109,7 +109,7 @@ var v_results = new Vue({
       return this.ground_truth.length > 0 && this.answer_sheet.length === this.ground_truth.length;
     },
     num_correct_challenges: function () {
-      return element_wise_equal(this.answer_sheet, this.ground_truth).reduce(function(x, y) { return y + x; });
+      return element_wise_equal(this.answer_sheet, this.ground_truth.map(x => x.pronunciation)).reduce(function(x, y) { return y + x; });
     },
     num_total_challenges: function () {
       return this.ground_truth.length;
