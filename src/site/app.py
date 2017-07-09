@@ -24,9 +24,9 @@ app.config['SWAGGER_INFO'] = {
 }
 
 
-@app.route("/hello")
-def hello():
-    return render_template('hello_vue.html')
+@app.route("/japanese")
+def japanese():
+    return render_template('japanese.html')
 
 
 if __name__ == '__main__':
