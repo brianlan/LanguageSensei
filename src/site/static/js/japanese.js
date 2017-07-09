@@ -24,7 +24,7 @@ function next_char() {
     if (cur_idx === v_results.ground_truth.length) {
       console.log('finished.')
       $.ajax({
-        url: 'http://localhost:5000/trial/',
+        url: '/trial',
         method: 'POST',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
@@ -58,7 +58,7 @@ var challenge = new Vue({
   mounted: function () {
     var self = this;
     $.ajax({
-        url: 'http://localhost:5000/character/?max_results=100',
+        url: '/character/?max_results=100',
         method: 'GET',
         success: function (data) {
             v_results.ground_truth = data._items.map( function(x) {
